@@ -27,5 +27,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/tasks', Livewire\TaskList::class)->name('tasks');
+    Route::get('/tasks', Livewire\Tasks::class)->name('tasks');
 });
