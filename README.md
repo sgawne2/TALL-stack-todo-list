@@ -5,35 +5,39 @@
 ### Installation
 ```
 $ composer install
-$ php artisan key:generate
 ```
 
 ### Environment Variables
 
 * Create your .env in the root directory of this project
-* Make sure 
+* Make sure your 
 DB_DATABASE,
 DB_USERNAME,
 and
 DB_PASSWORD
-are all set before migrating
+variables are all set correctly
+* Generate the APP_KEY
 
-### Migration
+```
+$ php artisan key:generate
+```
+
+### Server
 
 #### Standard
 ```
-$ php artisan migrate
+$ php artisan serve
 ```
 
 #### Using [Laravel Sail](https://laravel.com/docs/sail)
 ```
-$ ./vendor/bin/sail up
-$ ./vendor/bin/sail artisan migrate
+$ ./vendor/bin/sail up -d
 ```
 
 ## Demo 
 * The demo makes use of user logins, so please register a new account to get access to the dashboard.
-* Click on "My Tasks" in the navigation bar.
+* After logging in and being sent to the dashboard, click on "My Tasks" in the navigation bar.
+* Alternatively, just navigate to /tasks
 * Use the "Task" input field to enter a title for your new To-do list entry.
 * If you forget to enter a "Task" title, form validation will display a helper message for you.
 * If you registered more than one account, you can assign the task to someone else.
