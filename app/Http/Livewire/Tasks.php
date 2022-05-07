@@ -21,14 +21,25 @@ class Tasks extends Component
     public function mount()
     {
         $this->userId = Auth::user()->id;
-        $this->users = User::all();
+        $this->getUserList();
         $this->getTaskLists();
     }
 
-    public function getTaskLists() // ❓ pulls from the database, which may have tasks added by other users
+    public function getUserList() 
+    {
+        $this->users = User::all();
+    }
+
+    public function getTaskLists() // ❓ we have to check the DB if theres any tasks assigned to use that we didnt create
     {
         $this->todo = Task::where('assignee', $this->userId)->where('finished', false)->orderBy('updated_at', 'desc')->get();
         $this->done = Task::where('assignee', $this->userId)->where('finished', true)->orderBy('updated_at', 'desc')->get();
+    }
+
+    public function refresh() 
+    {
+        $this->getUserList(); // ❓ new tasks could be assigned to us by users who registered after this component mounted, so we need to pull them again
+        $this->getTaskLists(); 
     }
 
     public function render()

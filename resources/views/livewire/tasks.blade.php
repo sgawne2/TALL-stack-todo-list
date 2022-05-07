@@ -10,7 +10,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <livewire:task-add :users="$users">
             
-            <div wire:poll="getTaskLists" class="flex flex-wrap overflow-y-auto bg-white shadow-xl sm:rounded-lg">
+            <div wire:poll="refresh" class="flex flex-wrap overflow-y-auto bg-white shadow-xl sm:rounded-lg">
                 <div class="flex-1 m-3 min-w-fit md:min-w-0">
                     <h3 class="text-xl font-semibold leading-tight text-center text-gray-800">To-do</h3>
                     @foreach($todo as $task)
