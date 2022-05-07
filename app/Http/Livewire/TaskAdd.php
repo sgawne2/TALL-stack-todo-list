@@ -10,11 +10,10 @@ use App\Models\User;
 
 class TaskAdd extends Component
 {
-    public $userId;
     public $users;
     public $title;
     public $priority;
-    public $priorities = [ // tailwind doesn't like computed css class names :(
+    public $priorities = [ // tailwind doesn't like computed css class names 😭
         'Low' => [
             'color' => 'blue',
         ],
@@ -37,11 +36,11 @@ class TaskAdd extends Component
 
     public function mount()
     {
-        $this->userId = Auth::user()->id;
-        $this->users = User::all();
         $this->priority = "Normal";
-        $this->assigner = $this->userId;
-        $this->assignee = $this->userId;
+
+        $userId = Auth::user()->id;
+        $this->assigner = $userId;
+        $this->assignee = $userId; // ❓ task assignment will default to yourself
     }
 
     public function newTask()

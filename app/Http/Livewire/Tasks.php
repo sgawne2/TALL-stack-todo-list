@@ -25,7 +25,7 @@ class Tasks extends Component
         $this->getTaskLists();
     }
 
-    public function getTaskLists() // pulls from the database, which may have tasks added by other users
+    public function getTaskLists() // ❓ pulls from the database, which may have tasks added by other users
     {
         $this->todo = Task::where('assignee', $this->userId)->where('finished', false)->orderBy('updated_at', 'desc')->get();
         $this->done = Task::where('assignee', $this->userId)->where('finished', true)->orderBy('updated_at', 'desc')->get();
