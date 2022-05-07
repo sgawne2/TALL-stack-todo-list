@@ -1,13 +1,17 @@
-# TALL stack "To-do" list
+ # TALL stack "To-do" list
+
+# Requirements
+* PHP 8.1.5+
+* Composer 2.3.5+
+
+# Installation
 
 ## Initial Setup
-
-### Installation
 ```
 $ composer install
 ```
 
-### Environment Variables
+## Environment Variables
 
 * Create your .env in the root directory of this project
 * Make sure your 
@@ -22,7 +26,7 @@ variables are all set correctly
 $ php artisan key:generate
 ```
 
-### Server
+## Server
 
 #### Standard
 ```
@@ -34,7 +38,19 @@ $ php artisan serve
 $ ./vendor/bin/sail up -d
 ```
 
-## Demo 
+## Migrations
+
+#### Standard
+```
+$ php artisan migrate
+```
+
+#### Using [Laravel Sail](https://laravel.com/docs/sail)
+```
+$ ./vendor/bin/sail artisan migrate
+```
+
+# Demo 
 * The demo makes use of user logins, so please register a new account to get access to the dashboard.
 * After logging in and being sent to the dashboard, click on "My Tasks" in the navigation bar.
 * Alternatively, just navigate to /tasks
